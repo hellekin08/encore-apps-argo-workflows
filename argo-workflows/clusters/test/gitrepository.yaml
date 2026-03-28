@@ -1,0 +1,11 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: encore-apps-argo-workflows
+spec:
+  interval: 1m
+  url: https://github.com/hellekin08/encore-apps-argo-workflows
+  ref:
+    branch: test
+  secretRef:
+    name: encore-infra-git-key

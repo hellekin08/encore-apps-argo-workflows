@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-workflows
+  annotations:
+    acme.cert-manager.io/dns01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: workflows.encore-dev.enercity.cloud
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: argo-workflows-server
+                port:
+                  number: 2746
+  tls:
+    - hosts:
+        - workflows.encore-dev.enercity.cloud
+      secretName: tls-argo-workflows-ingress

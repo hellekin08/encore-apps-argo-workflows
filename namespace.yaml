@@ -1,0 +1,23 @@
+apiVersion: enerkube.enercity.cloud/v1beta1
+kind: EnerkubeNamespace
+metadata:
+  name: enerkube-workflows-airflow
+  namespace: management
+spec:
+  parameters:
+    name: cx-workflows-encore-ns
+    management: false
+    responsible: maik.bialas@enercity-netz.de
+    alerting:
+      - maik.bialas@enercity-netz.de
+    cost:
+      costcenter: "it-dm"
+    permissions:
+      view:
+        - namespace: management
+          serviceAccount: default-login-serviceaccount
+      edit:
+        - namespace: management
+          serviceAccount: default-login-serviceaccount
+  writeConnectionSecretToRef:
+    name: enerkube-workflow-kubeconfigs

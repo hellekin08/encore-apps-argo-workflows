@@ -1,0 +1,9 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: argo-workflows
+spec:
+  values:
+    controller:
+      instanceID:
+        explicitID: argo-workflows-dev
