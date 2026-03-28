@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: cx-argo-workflows-encore-ns
 resources:
   - gitrepository.yaml
+  - ../base/argo-workflows-rbac.yaml
   - ../base/argo-workflows.yaml
 patches:
   - patch: |-
@@ -18,6 +19,11 @@ replacements:
       name: encore-apps-argo-workflows
       fieldPath: metadata.namespace
     targets:
+      - select:
+          kind: Kustomization
+          name: argo-workflows-rbac
+        fieldPaths:
+          - spec.targetNamespace
       - select:
           kind: Kustomization
           name: argo-workflows
