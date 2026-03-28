@@ -7,7 +7,7 @@ spec:
   path: ./argo-workflows/app/rbac
   prune: true
   targetNamespace: placeholder
-  serviceAccountName: vois-login-serviceaccount
+  serviceAccountName: default-login-serviceaccount
   sourceRef:
     kind: GitRepository
     name: encore-apps-argo-workflows
