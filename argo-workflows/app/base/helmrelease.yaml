@@ -53,6 +53,8 @@ spec:
         enabled: true
         useReleaseName: false
         explicitID: argo-workflows
+      clusterWorkflowTemplates:
+        enabled: false
     mainContainer:
       securityContext:
         allowPrivilegeEscalation: false
@@ -86,6 +88,8 @@ spec:
         runAsUser: 1000
         runAsGroup: 1000
         runAsNonRoot: true
+      clusterWorkflowTemplates:
+        enabled: false
       serviceType: ClusterIP
       authModes:
         - server
