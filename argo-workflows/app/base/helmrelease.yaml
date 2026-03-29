@@ -93,7 +93,7 @@ spec:
       serviceAccount:
         create: true
       rbac:
-        create: true
+        create: false
       clusterWorkflowTemplates:
         enabled: false
       serviceType: ClusterIP
