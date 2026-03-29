@@ -39,53 +39,53 @@ rules:
       - update
       - delete
       - get
-  # - apiGroups:
-  #     - argoproj.io
-  #   resources:
-  #     - workflows
-  #     - workflows/finalizers
-  #     - workflowtasksets
-  #     - workflowtasksets/finalizers
-  #     - workflowtasksets/status
-  #     - workflowartifactgctasks
-  #   verbs:
-  #     - get
-  #     - list
-  #     - watch
-  #     - update
-  #     - patch
-  #     - delete
-  #     - create
-  # - apiGroups:
-  #     - argoproj.io
-  #   resources:
-  #     - workflowtemplates
-  #     - workflowtemplates/finalizers
-  #   verbs:
-  #     - get
-  #     - list
-  #     - watch
-  # - apiGroups:
-  #     - argoproj.io
-  #   resources:
-  #     - workflowtaskresults
-  #     - workflowtaskresults/finalizers
-  #   verbs:
-  #     - list
-  #     - watch
-  #     - deletecollection
-  # - apiGroups:
-  #     - argoproj.io
-  #   resources:
-  #     - cronworkflows
-  #     - cronworkflows/finalizers
-  #   verbs:
-  #     - get
-  #     - list
-  #     - watch
-  #     - update
-  #     - patch
-  #     - delete
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - workflows
+      - workflows/finalizers
+      - workflowtasksets
+      - workflowtasksets/finalizers
+      - workflowtasksets/status
+      - workflowartifactgctasks
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+      - patch
+      - delete
+      - create
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - workflowtemplates
+      - workflowtemplates/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - workflowtaskresults
+      - workflowtaskresults/finalizers
+    verbs:
+      - list
+      - watch
+      - deletecollection
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - cronworkflows
+      - cronworkflows/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+      - patch
+      - delete
   - apiGroups:
       - ""
     resources:
