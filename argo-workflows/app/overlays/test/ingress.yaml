@@ -17,7 +17,7 @@ spec:
               service:
                 name: argo-workflows-server
                 port:
-                  number: 2746
+                  number: 27460
   tls:
     - hosts:
         - workflows.encore-test.enercity.cloud
