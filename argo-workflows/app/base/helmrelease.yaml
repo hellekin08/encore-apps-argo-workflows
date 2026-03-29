@@ -29,10 +29,10 @@ spec:
     createAggregateRoles: false
     workflow:
       serviceAccount:
-        create: false
+        create: true
         name: argo-workflow
       rbac:
-        create: false
+        create: true
     controller:
       podSecurityContext:
         fsGroup: 1000
@@ -48,10 +48,9 @@ spec:
         runAsGroup: 1000
         runAsNonRoot: true
       serviceAccount:
-        create: false
-        name: argo-workflows-workflow-controller
+        create: true
       rbac:
-        create: false
+        create: true
       instanceID:
         enabled: true
         useReleaseName: false
@@ -92,10 +91,9 @@ spec:
         runAsGroup: 1000
         runAsNonRoot: true
       serviceAccount:
-        create: false
-        name: argo-workflows-server
+        create: true
       rbac:
-        create: false
+        create: true
       clusterWorkflowTemplates:
         enabled: false
       serviceType: ClusterIP

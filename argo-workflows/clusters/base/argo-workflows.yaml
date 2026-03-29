@@ -4,8 +4,6 @@ metadata:
   name: argo-workflows
 spec:
   interval: 1m
-  dependsOn:
-    - name: argo-workflows-rbac
   path: ./argo-workflows/app/overlays/dev
   prune: true
   targetNamespace: placeholder
