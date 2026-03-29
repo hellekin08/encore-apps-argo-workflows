@@ -42,20 +42,20 @@ rules:
       - watch
       - create
       - patch
-  - apiGroups:
-      - argoproj.io
-    resources:
-      - eventsources
-      - sensors
-      - workflows
-      - workfloweventbindings
-      - workflowtemplates
-      - cronworkflows
-    verbs:
-      - create
-      - get
-      - list
-      - watch
-      - update
-      - patch
-      - delete
+  # - apiGroups:
+  #     - argoproj.io
+  #   resources:
+  #     - eventsources
+  #     - sensors
+  #     - workflows
+  #     - workfloweventbindings
+  #     - workflowtemplates
+  #     - cronworkflows
+  #   verbs:
+  #     - create
+  #     - get
+  #     - list
+  #     - watch
+  #     - update
+  #     - patch
+  #     - delete
