@@ -21,7 +21,12 @@ replacements:
     targets:
       - select:
           kind: Kustomization
-          name: argo-workflows-rbac
+          name: argo-workflows-rbac-roles
+        fieldPaths:
+          - spec.targetNamespace
+      - select:
+          kind: Kustomization
+          name: argo-workflows-rbac-bindings
         fieldPaths:
           - spec.targetNamespace
       - select:
