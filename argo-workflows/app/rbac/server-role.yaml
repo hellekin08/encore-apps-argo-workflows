@@ -46,8 +46,6 @@ rules:
       - argoproj.io
     resources:
       - cronworkflows
-      - eventsources
-      - sensors
       - workflows
       - workfloweventbindings
       - workflowtemplates
