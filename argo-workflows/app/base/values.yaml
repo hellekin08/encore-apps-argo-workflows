@@ -156,7 +156,7 @@ controller:
     scheme: http
     # -- Flag to enable headless service
     headlessService: false
-    # -- When true, honorLabels preserves the metric’s labels when they collide with the target’s labels.
+    # -- When true, honorLabels preserves the metricï¿½s labels when they collide with the targetï¿½s labels.
     ## Ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#honorlabels
     honorLabels: false
     # -- ServiceMonitor relabel configs to apply to samples before scraping
@@ -746,7 +746,7 @@ server:
     enabled: false
     # -- Domains for the Google Managed Certificate
     domains:
-    - argoworkflows.example.com
+      - argoworkflows.example.com
 
   ## Create a Google FrontendConfig Custom Resource, for use with the GKE Ingress Controller
   ## https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features#configuring_ingress_features_through_frontendconfig_parameters
@@ -787,11 +787,11 @@ server:
     rbac:
       # -- Adds ServiceAccount Policy to server (Cluster)Role.
       enabled: true
-    # -- Whitelist to allow server to fetch Secrets
-    ## When present, restricts secrets the server can read to a given list.
-    ## You can use it to restrict the server to only be able to access the
-    ## service account token secrets that are associated with service accounts
-    ## used for authorization.
+      # -- Whitelist to allow server to fetch Secrets
+      ## When present, restricts secrets the server can read to a given list.
+      ## You can use it to restrict the server to only be able to access the
+      ## service account token secrets that are associated with service accounts
+      ## used for authorization.
       secretWhitelist: []
     # -- Scopes requested from the SSO ID provider
     ## The 'groups' scope requests group membership information, which is usually used for authorization decisions.

@@ -43,10 +43,7 @@ rules:
       - argoproj.io
     resources:
       - workflows
-      - workflows/finalizers
       - workflowtasksets
-      - workflowtasksets/finalizers
-      - workflowtasksets/status
       - workflowartifactgctasks
     verbs:
       - get
@@ -60,7 +57,6 @@ rules:
       - argoproj.io
     resources:
       - workflowtemplates
-      - workflowtemplates/finalizers
     verbs:
       - get
       - list
@@ -69,16 +65,14 @@ rules:
       - argoproj.io
     resources:
       - workflowtaskresults
-      - workflowtaskresults/finalizers
     verbs:
       - list
       - watch
-      - deletecollection
+      # deletecollection is intentionally omitted because default-login-serviceaccount cannot delegate it.
   - apiGroups:
       - argoproj.io
     resources:
       - cronworkflows
-      - cronworkflows/finalizers
     verbs:
       - get
       - list
