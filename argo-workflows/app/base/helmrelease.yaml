@@ -23,7 +23,7 @@ spec:
   values:
     fullnameOverride: argo-workflows
     crds:
-      install: true
+      install: false
       keep: true
     singleNamespace: true
     createAggregateRoles: false

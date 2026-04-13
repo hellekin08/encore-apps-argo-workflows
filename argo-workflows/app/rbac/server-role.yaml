@@ -42,6 +42,14 @@ rules:
       - watch
       - create
       - patch
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - workflowtemplates
+    verbs:
+      - get
+      - list
+      - watch
   # - apiGroups:
   #     - argoproj.io
   #   resources:
