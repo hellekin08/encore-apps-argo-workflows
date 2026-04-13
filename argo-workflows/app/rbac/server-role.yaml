@@ -45,6 +45,7 @@ rules:
   - apiGroups:
       - argoproj.io
     resources:
+      - workflows
       - workflowtemplates
     verbs:
       - get
