@@ -45,7 +45,11 @@ rules:
   - apiGroups:
       - argoproj.io
     resources:
+      - cronworkflows
+      - eventsources
+      - sensors
       - workflows
+      - workfloweventbindings
       - workflowtemplates
     verbs:
       - get
