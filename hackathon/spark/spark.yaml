@@ -1,0 +1,84 @@
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: encore-database-to-tmp-storage-test
+  namespace: "cx-workflows-encore-ns"
+spec:
+  type: Python
+  pythonVersion: "3"
+  mode: cluster
+  image: "encoreacrdev.azurecr.io/database-to-tmp-storage:TEST-<tag>"
+  imagePullPolicy: Always
+  mainApplicationFile: local:///opt/app/src/main.py
+  sparkVersion: 4.0.1
+  timeToLiveSeconds: 3000
+  restartPolicy:
+    type: Never
+
+  nodeSelector: {}
+
+  sparkConf:
+    spark.kubernetes.submission.waitAppCompletion: "true"
+    spark.kubernetes.driver.deleteOnTermination: "false"
+    spark.kubernetes.executor.deleteOnTermination: "false"
+    spark.kubernetes.driver.pod.seccompProfile.type: RuntimeDefault
+    spark.kubernetes.executor.pod.seccompProfile.type: RuntimeDefault
+    spark.sql.parquet.datetimeRebaseModeInWrite: LEGACY
+    spark.sql.parquet.int96RebaseModeInWrite: LEGACY
+    spark.sql.session.timeZone: UTC
+    spark.pyspark.python: python3
+    spark.pyspark.driver.python: python3
+
+    spark.eventLog.enabled: "false"
+    spark.ui.showConsoleProgress: "false"
+    spark.log.level: "WARN"
+
+  driver:
+    serviceAccount: encore-argo
+    coreRequest: "100m"
+    coreLimit: "1"
+    memory: "1024m"
+    env:
+      - name: DAG_ID
+        value: DUMMYDAGID123
+      - name: RUN_ID
+        value: DUMMYRUNID!23
+    envFrom:
+      # DEFAULTS
+      - configMapRef:
+          name: encore-landing-storage-config
+      - secretRef:
+          name: azure-credentials
+      # DATASOURCE
+      - configMapRef:
+          name: uc-ewms-db-mssql-config
+      - secretRef:
+          name: uc-ewms-db-mssql-secret
+
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: false
+      capabilities:
+        drop: ["ALL"]
+    labels: { version: "4.0.1" }
+
+  executor:
+    instances: 1
+    coreRequest: "100m"
+    coreLimit: "1"
+    memory: "2048m"
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: false
+      capabilities:
+        drop: ["ALL"]
+    labels: { version: "3.5.1" }
+    env:
+      - name: PYTHONUNBUFFERED
+        value: "1"
