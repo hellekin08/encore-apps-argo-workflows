@@ -1,13 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: spark-argo-workflows-workflow-controller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: spark-argo-workflows-workflow-controller
 subjects:
   - kind: ServiceAccount
     name: argo-workflows-workflow-controller
+    namespace: cx-workflows-encore-ns
   - kind: ServiceAccount
     name: encore-argo
+    namespace: cx-workflows-encore-ns
