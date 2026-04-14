@@ -25,7 +25,7 @@ spec:
     crds:
       install: false
       keep: true
-    singleNamespace: true
+    singleNamespace: false
     createAggregateRoles: false
     workflow:
       serviceAccount:
