@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: simple-template
+  namespace: cx-workflows-encore-ns
+spec:
+  entrypoint: main
+  arguments:
+    parameters:
+      - name: message
+        value: "Hello default"
+  templates:
+    - name: main
+      inputs:
+        parameters:
+          - name: message
+      container:
+        image: alpine:3.18
+        command: [echo]
+        args: ["{{inputs.parameters.message}}"]

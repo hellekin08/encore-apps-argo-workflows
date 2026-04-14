@@ -53,6 +53,10 @@ rules:
       - get
       - list
       - watch
+      - create
+      - delete
+      - update
+      - patch
   # - apiGroups:
   #     - argoproj.io
   #   resources:

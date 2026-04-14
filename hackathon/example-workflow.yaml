@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: simple-template-run-
+spec:
+  workflowTemplateRef:
+    name: simple-template
+  arguments:
+    parameters:
+      - name: message
+        value: "Hello from Workflow!"
