@@ -45,6 +45,7 @@ rules:
       - workflows
       - workflowtasksets
       - workflowartifactgctasks
+      - workflowtaskresults
     verbs:
       - get
       - list

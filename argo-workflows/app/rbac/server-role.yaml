@@ -49,6 +49,7 @@ rules:
       - workflows
       - workfloweventbindings
       - workflowtemplates
+      - workflowtaskresults
     verbs:
       - get
       - list

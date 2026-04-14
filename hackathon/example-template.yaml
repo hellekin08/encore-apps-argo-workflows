@@ -3,6 +3,8 @@ kind: WorkflowTemplate
 metadata:
   name: simple-template
   namespace: cx-workflows-encore-ns
+  labels:
+    workflows.argoproj.io/controller-instanceid: argo-workflows-dev
 spec:
   entrypoint: main
   arguments:

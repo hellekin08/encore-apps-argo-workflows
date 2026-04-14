@@ -2,7 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
   generateName: simple-template-run-
+  namespace: cx-workflows-encore-ns
+  labels:
+    workflows.argoproj.io/controller-instanceid: argo-workflows-dev
 spec:
+  serviceAccountName: argo-workflows-workflow-controller
   workflowTemplateRef:
     name: simple-template
   arguments:
